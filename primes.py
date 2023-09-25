@@ -4,7 +4,6 @@
 def primes(number_of_primes):
     if number_of_primes <= 0:
         raise ValueError("Number of primes must be positive")
-    
     primes_list = []
     count = 0
     i=2
@@ -16,7 +15,10 @@ def primes(number_of_primes):
     return primes_list
         
 def is_prime(n):
-    return all(n%i for i in range(2,int((n**0.5)+1)))
+    for i in range(2,int((n**0.5)+1)):
+        if n%i==0:
+            return False
+    return True
 
 
 print(primes(10))
